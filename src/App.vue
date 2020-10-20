@@ -1,22 +1,24 @@
 <template>
-<div class="todoapp">
-  <h1>ToDo App</h1>
-  <input class="new-todo" autofocus autocomplete="off" placeholder="What needs to be done?" v-model="newTodo" @keyup.enter="addNewTodo">
-  <ul class="todo-list">
-    <li class="todo" v-for="todo in todos" :key="todo.id" :class="{completed: todo.completed, editing: todo == editedTodo}">
-      <div class="view">
-        <input class="toggle" type="checkbox" v-model="todo.completed">
-        <label @dblclick="editTodo(todo)">{{todo.content}} <span class="created">Created on: {{todo.created}}</span></label>
-        <button class="destroy" @click="removeToDo(todo)"></button>
-      </div>
-      <input class="edit" type="text" v-model="todo.content" v-todo-focus="todo == editedTodo" @blur="doneEdit(todo)" @keyup.enter="doneEdit(todo)" @keyup.esc="cancelEdit(todo)">
-    </li>
-  </ul>
-  <button class="clear-completed" @click="markAllDone">Mark All Completed</button>
-</div>
-<div class="info">
-  <p>Double-click to edit a todo</p>
-</div>
+  <div class="todoapp">
+    <h1>ToDo App</h1>
+    <input class="new-todo" autofocus autocomplete="off" placeholder="What needs to be done?" v-model="newTodo" @keyup.enter="addNewTodo">
+    
+    <ul class="todo-list">
+      <li class="todo" v-for="todo in todos" :key="todo.id" :class="{completed: todo.completed, editing: todo == editedTodo}">
+        <div class="view">
+          <input class="toggle" type="checkbox" v-model="todo.completed">
+          <label @dblclick="editTodo(todo)">{{todo.content}} <span class="created">Created on: {{todo.created}}</span></label>
+          <button class="destroy" @click="removeToDo(todo)"></button>
+        </div>
+        <input class="edit" type="text" v-model="todo.content" v-todo-focus="todo == editedTodo" @blur="doneEdit(todo)" @keyup.enter="doneEdit(todo)" @keyup.esc="cancelEdit(todo)">
+      </li>
+    </ul>
+    
+    <button class="clear-completed" @click="markAllDone">Mark All Completed</button>
+  </div>
+  <div class="info">
+    <p>Double-click to edit a todo</p>
+  </div>
 </template>
 
 <script>
