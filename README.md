@@ -1,5 +1,8 @@
 # vuetodo
 
+Simple ToDo App using Vue.JS
+See compiled and latest code running on Netlify [here](https://vuetodo-edavlatian.netlify.app/)
+
 ## Project setup
 ```
 npm install
